@@ -4,7 +4,9 @@ pipeline {
   stages {
     stage('Clone Repo') {
       steps {
-        git 'https://github.com/Syed-learning/todo-devops.git'
+        git branch: 'master',
+            url:  'https://github.com/Syed-learning/todo-devops.git',
+            credentialsId: 'github-token'
       }
     }
 
