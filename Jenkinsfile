@@ -33,10 +33,10 @@ pipeline {
         sshagent(credentials: ['ec2-ssh-key']) {
           sh '''
             ssh -o StrictHostKeyChecking=no ubuntu@3.93.198.117 '
-              docker pull learningdocker826/todo-app:latest &&
-              docker stop todo || true &&
-              docker rm todo || true &&
-              docker run -d -p 5000:5000 --name todo learningdocker826/todo-app:latest
+               sudo docker pull learningdocker826/todo-app:latest &&
+               sudo docker stop todo || true &&
+               sudo docker rm todo || true &&
+               sudo docker run -d -p 5000:5000 --name todo learningdocker826/todo-app:latest
             '
           '''
         }
