@@ -30,9 +30,9 @@ pipeline {
 
     stage('Deploy to EC2') {
       steps {
-        sshagent(['ec2-ssh-key']) {
+        sshagent(credentials: ['ec2-ssh-key']) {
           sh '''
-            ssh -o StrictHostKeyChecking=no ubuntu@<EC2-PUBLIC-IP> '
+            ssh -o StrictHostKeyChecking=no ubuntu@3.93.198.117 '
               docker pull learningdocker826/todo-app:latest &&
               docker stop todo || true &&
               docker rm todo || true &&
